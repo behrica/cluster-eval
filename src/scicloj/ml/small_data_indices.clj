@@ -42,20 +42,17 @@
 
 
 
-
-(comment
-  (.add instances
-        (DenseInstance. 1.0 (double-array [1 2 3])))
-  (def cluster (Cluster.))
-  (.. cluster getInstances (addAll (.subList instances 0 1))))
-
-(def cluster-data
-  {:values [[0 1 2] [2 3 4] [10 20 30] [30 40 20]]
-   :cluster    [0      0       1            1]
-   :centroid?  [false  true    false       true]})
+(defn cluster-index [cluster-data index-name]
+  (let [clusters-result (make-clusters cluster-data)]
+    (-> (clojure.lang.Reflector/invokeStaticMethod
+         KMeansIndices "calcularSilhouette"
+         (object-array [(clusters-result :clusters) (clusters-result :distance-fn)]))
+        bean
+        :resultado)))
 
 
-(def clusters-result (make-clusters cluster-data))
-
-(bean
- (KMeansIndices/calcularDunn (clusters-result :clusters) (clusters-result :distance-fn)))
+(cluster-index
+ {:values [[0 1 2] [2 3 4] [10 20 30] [30 40 20]]
+  :cluster [0 0 1 1]
+  :centroid? [false true false true]}
+ "calcularSilhouette")
