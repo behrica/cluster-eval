@@ -1,7 +1,7 @@
 # cluster-eval
 
 
-FIXME: my new library.
+Clojure library containing some Weka based metrices for evaluation metrices of clusters
 
 ## Usage
 
