@@ -9,12 +9,12 @@
 
 (defn clean [_]
   (b/delete {:path "target"}))
-
 (defn compile [_]
   (b/javac {:src-dirs ["java"]
             :class-dir class-dir
-            :basis basis
-            :javac-opts ["-source" "8" "-target" "8"]}))
+            :basis basis}))
+            ;; :javac-opts ["-source" "8" "-target" "8"]
+
 
 (defn jar [_]
   (compile nil)
@@ -27,3 +27,16 @@
                :target-dir class-dir})
   (b/jar {:class-dir class-dir
           :jar-file jar-file}))
+
+(defn install [_]
+  (b/install {:basis basis
+              :lib lib
+              :version version
+              :class-dir class-dir
+              :jar-file jar-file})
+  (println "Installed in .m2: " jar-file))
+
+(defn ci [_]
+  (clean nil)
+  (jar nil)
+  (install nil))

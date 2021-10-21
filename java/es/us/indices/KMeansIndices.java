@@ -1,5 +1,4 @@
 package es.us.indices;
-
 import weka.core.*;
 
 import java.util.ArrayList;
