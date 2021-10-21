@@ -1,4 +1,4 @@
-(ns scicloj.ml.small-data-indices)
+(ns net.clojars.behrica.cluster_eval)
 
 (import '[es.us.indices KMeansIndices]
         '[weka.core Attribute Instances DenseInstance EuclideanDistance]
