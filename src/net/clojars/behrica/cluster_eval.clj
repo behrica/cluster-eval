@@ -1,8 +1,7 @@
-(ns net.clojars.behrica.cluster_eval)
-
-(import '[es.us.indices KMeansIndices]
-        '[weka.core Attribute Instances DenseInstance EuclideanDistance]
-        '[es.us.indices Cluster KMeansIndices])
+(ns net.clojars.behrica.cluster_eval
+  (:import [es.us.indices KMeansIndices]
+          [weka.core Attribute Instances DenseInstance EuclideanDistance]
+          [es.us.indices Cluster KMeansIndices]))
 
 (defn make-attributes [n]
   (map
@@ -50,9 +49,9 @@
         bean
         :resultado)))
 
-
-(cluster-index
- {:values [[0 1 2] [2 3 4] [10 20 30] [30 40 20]]
-  :cluster [0 0 1 1]
-  :centroid? [false true false true]}
- "calcularSilhouette")
+(comment
+  (cluster-index
+   {:values [[0 1 2] [2 3 4] [10 20 30] [30 40 20]]
+    :cluster [0 0 1 1]
+    :centroid? [false true false true]}
+   "calcularSilhouette"))

@@ -1,5 +1,8 @@
 {:mvn/repos {"dsol" {:url "https://simulation.tudelft.nl/maven/"}}
  :paths ["src" "resources" "target/classes"]
+ :deps/prep-lib {:alias :build
+                 :fn compile
+                 :ensure "target/classes"}
  :deps {org.clojure/clojure {:mvn/version "1.10.3"}
         nz.ac.waikato.cms.weka/weka-stable {:mvn/version  "3.8.5"}
         ;; jmluna/smallDataIndices {:mvn/version "1.0-SNAPSHOT"}
