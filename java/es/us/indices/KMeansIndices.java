@@ -340,8 +340,11 @@ public class KMeansIndices  {
                 for (Instance punto2 : cluster.getInstances()) {
                     if (!punto.equals(punto2)) {
                         aux = distanceFunction.distance(punto, punto2);
+                        System.out.println("aux = " + aux);
                         squaredDistance += aux * aux;
+                        System.out.println("squaredDistance = " + squaredDistance);
                         cont++;
+                        System.out.println("cont = " + cont);
                     }
                 }
             }
@@ -454,11 +457,11 @@ public class KMeansIndices  {
         instances.add(makeInstance(new double[]{60,20,30}));
 
         Cluster cla = new Cluster();
-        cla.getInstances().addAll(instances.subList(0,2));
+        cla.getInstances().addAll(instances.subList(0,3));
         cla.setCentroide(instances.get(1));
 
         Cluster clb = new Cluster();
-        clb.getInstances().addAll(instances.subList(3,5));
+        clb.getInstances().addAll(instances.subList(4,5));
         clb.setCentroide(instances.get(4));
 
 
@@ -470,7 +473,10 @@ public class KMeansIndices  {
         clusters.add(cla);
         clusters.add(clb);
 
-        System.out.println(calcularDunn(clusters,distanceFunction));
+        System.out.println(calcularAverageDistance(clusters,distanceFunction).getResultado());
+
+        double d = distanceFunction.distance(makeInstance(new double[]{10, 20, 30}), makeInstance(new double[]{60, 20, 30}));
+        System.out.println("d = " + d);
     }
 }
 
