@@ -340,11 +340,8 @@ public class KMeansIndices  {
                 for (Instance punto2 : cluster.getInstances()) {
                     if (!punto.equals(punto2)) {
                         aux = distanceFunction.distance(punto, punto2);
-                        System.out.println("aux = " + aux);
                         squaredDistance += aux * aux;
-                        System.out.println("squaredDistance = " + squaredDistance);
                         cont++;
-                        System.out.println("cont = " + cont);
                     }
                 }
             }

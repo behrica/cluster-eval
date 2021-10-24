@@ -43,7 +43,7 @@
     {:distance-fn (EuclideanDistance. instances)
      :clusters (vals clusters)}))
 
-(first (vals  clusters))
+
 
 (defn cluster-index [cluster-data index-name]
   (let [clusters-result (make-clusters cluster-data)
