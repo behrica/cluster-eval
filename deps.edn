@@ -4,9 +4,8 @@
                  :fn compile
                  :ensure "target/classes"}
  :deps {org.clojure/clojure {:mvn/version "1.10.3"}
-        nz.ac.waikato.cms.weka/weka-stable {:mvn/version  "3.8.5"}
-        ;; jmluna/smallDataIndices {:mvn/version "1.0-SNAPSHOT"}
-        scicloj/metamorph.ml {:mvn/version "0.4.1-SNAPSHOT"}}
+        nz.ac.waikato.cms.weka/weka-stable {:mvn/version  "3.8.5"}}
+
  :aliases
  {:build {:deps {io.github.clojure/tools.build {:git/sha "8f29647ae52ac5594b3d63685be5d2a3c65002af"}}
           :ns-default build}
